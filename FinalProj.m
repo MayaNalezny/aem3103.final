@@ -79,7 +79,32 @@
  
 
 
+% q3 Random Parameters
+    %randomize Velocity 
+    Vrand = 2 + (7.5 - 2).*rand(100, 1);
+    %randomize Gamma
+    Grand = -0.4 + (0.5+0.4).*rand(100, 1);
 
-     
+    %create and hold figure
+    figure 
+    hold on
+
+
+for i = 1:1:100
+  
+     xRand = [Vrand(i,:);Grand(i,:);H;R];
+     [tR,xR]	=	ode23('EqMotion',tspan,xRand);
+   
+  %plot each run
+    plot(xR(:,4),xR(:,3), 'Color', 'k')
+    
+end
+
+%plot details 
+title('Randomized Velocity and Gamma within Range')
+xlabel('Range, m'), ylabel('Height, m'), grid
+    
+
+
 
     
