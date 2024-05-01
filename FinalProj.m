@@ -128,5 +128,18 @@ y_fit1 = polyval(p1, trange);
 p2 = polyfit(trange, avgHeight, 5);
 y_fit2 = polyval(p2, trange);
 
+%plot height and range with fits
 
+figure
+subplot(2,1,1) 
+hold on
+plot(trange, avgRange, 'r')
+plot(trange, y_fit1, 'k.')
+xlabel('Time(s)'); ylabel('Range (m)');
+
+subplot(2,1,2)
+hold on
+plot(trange, avgHeight, 'b')
+plot(trange, y_fit2, 'k.')
+xlabel('Time (s)'); ylabel('Altitude (m)');
     
