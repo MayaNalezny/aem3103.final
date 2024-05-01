@@ -21,7 +21,7 @@
 							% Corresponding Velocity, m/s
 	Alpha	=	CL / CLa;			% Corresponding Angle of Attack, rad
 	
-%	Q2: a) Equilibrium Glide at Maximum Lift/Drag Ratio
+%%	Question 2: a) Equilibrium Glide at Maximum Lift/Drag Ratio
 	H		=	2;			% Initial Height, m
 	R		=	0;			% Initial Range, m
 	to		=	0;			% Initial Time, sec
@@ -79,7 +79,8 @@
  
 
 
-% q3 Random Parameters
+%% Question 3 Random Parameters
+
     %randomize Velocity 
     Vrand = 2 + (7.5 - 2).*rand(100, 1);
     %randomize Gamma
@@ -89,22 +90,43 @@
     figure 
     hold on
 
+ %values for 4
+range = nan * zeros(length(tspan), 100);
+height = nan * zeros(length(tspan),100);
+trange = 0:0.1:6;
 
-for i = 1:1:100
-  
+
+for i = 1:100
      xRand = [Vrand(i,:);Grand(i,:);H;R];
-     [tR,xR]	=	ode23('EqMotion',tspan,xRand);
-   
+     [tR,xR]	=	ode23('EqMotion',trange,xRand);
+ 
   %plot each run
     plot(xR(:,4),xR(:,3), 'Color', 'k')
+
+   
+    % Range and Height for 4
+    range(1:61, i) = xR(:,4);
+    height(1:61, i) = xR(:,3);
     
 end
-
+    hold on
 %plot details 
 title('Randomized Velocity and Gamma within Range')
 xlabel('Range, m'), ylabel('Height, m'), grid
-    
+    %% question 4
 
+for j = 1:61
+    avgRange(j) = mean(range(j,:));
+    avgHeight(j) = mean(height(j,:));
+end
+
+
+
+%polyfit to avg height and range
+p1 = polyfit(trange, avgRange, 1);
+y_fit1 = polyval(p1, trange);
+p2 = polyfit(trange, avgHeight, 5);
+y_fit2 = polyval(p2, trange);
 
 
     
