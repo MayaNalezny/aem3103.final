@@ -142,4 +142,29 @@ hold on
 plot(trange, avgHeight, 'b')
 plot(trange, y_fit2, 'k.')
 xlabel('Time (s)'); ylabel('Altitude (m)');
-    
+
+
+%% question 5
+%finding derivative
+syms x
+
+x = trange;
+eqn1 = x*p1(1) + p1(2);
+dr_dt = diff(eqn1);
+
+eqn2 = x.^5 * p2(1) + x.^4 * p2(2) + x.^3 * p2(3) + x.^2 * p2(4) + x * p2(5) + p2(6);
+dh_dt = diff(eqn2);
+
+
+%Plot range and height vs time 
+figure
+subplot(2,1,1)
+hold on
+plot(trange, eqn1, 'k')
+xlabel('Time (s)'); ylabel('Range (m)');
+title ('Time Derivaties For Range');
+subplot(2,1,2)
+hold on
+plot(trange, eqn2, 'k')
+xlabel('Time (s)'); ylabel('Height (m)');
+title ('Time Derivaties For Height');
