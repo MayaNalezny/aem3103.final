@@ -109,7 +109,8 @@ for i = 1:100
     height(1:61, i) = xR(:,3);
     
 end
-    hold on
+    
+
 %plot details 
 title('Randomized Velocity and Gamma within Range')
 xlabel('Range, m'), ylabel('Height, m'), grid
@@ -119,7 +120,7 @@ for j = 1:61
     avgRange(j) = mean(range(j,:));
     avgHeight(j) = mean(height(j,:));
 end
-
+hold on
 
 
 %polyfit to avg height and range
@@ -128,8 +129,10 @@ y_fit1 = polyval(p1, trange);
 p2 = polyfit(trange, avgHeight, 5);
 y_fit2 = polyval(p2, trange);
 
-%plot height and range with fits
+%plot fit line
+plot(y_fit1, y_fit2, 'b','LineWidth',1.2)
 
+%plot height and range with fits
 figure
 subplot(2,1,1) 
 hold on
@@ -142,6 +145,7 @@ hold on
 plot(trange, avgHeight, 'b')
 plot(trange, y_fit2, 'k.')
 xlabel('Time (s)'); ylabel('Altitude (m)');
+
 
 
 %% question 5
