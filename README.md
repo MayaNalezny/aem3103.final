@@ -24,6 +24,7 @@
 
   ## Fig. 1: Single Parameter Variation
 ![image](https://github.com/MayaNalezny/aem3103.final/assets/168198096/078de5bc-4da0-4374-962c-834614ec9370)
+
   <2D trajectory simulated by varying single parameter at at time>
   
 The figure above shows a Black line, which is the nominal trajectory of the glide. There is a Green line that represents the highest variation, while the Blue is the lowest variation. These values were assessed 
@@ -33,6 +34,7 @@ by velocity and gamma, varrying them both individually. When varrying one value,
 
   ## Fig. 2: Monte Carlo Simulation
   ![image](https://github.com/MayaNalezny/aem3103.final/assets/168198096/956e9eea-e10a-4769-97cd-d7c08f066562)
+  
   <2D trajectories simulated using random sampling of parameters, overlay polynomial fit onto plot.>
 
   In the above figure there are 100 randomized variations of the parameters of velocity and gamma. These runs used all other variables as constants, just randomizing the parameters within their accepted range, 
@@ -42,6 +44,7 @@ by velocity and gamma, varrying them both individually. When varrying one value,
 
  ## Fig. 3: Time Derivatives
  ![image](https://github.com/MayaNalezny/aem3103.final/assets/168198096/24abfb51-9cf4-492a-866e-1f47169afbf9)
+ 
  <Time-derivative of height and range for the fitted trajectory>
 
   Above is a figure that illustrates the slope of the height and range as they change over time for the flight trajectory. 
